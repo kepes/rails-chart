@@ -1,4 +1,5 @@
-//= require chartJs_defaults
+//= require Chart.min
+//= require chartjs_defaults
 $(document).ready(function() {
   $("canvas").each(function(k,v) {
     id = $(v).attr('id');
