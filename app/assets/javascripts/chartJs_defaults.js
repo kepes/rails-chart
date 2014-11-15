@@ -12,6 +12,7 @@ var chartjs_default_options = {
   datasetStrokeWidth: 2,
   datasetFill: true,
   responsive: true,
+  maintainAspectRatio: false,
   multiTooltipTemplate: "<%= datasetLabel %> - <%= value %>"
 }
 

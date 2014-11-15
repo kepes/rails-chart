@@ -1,1 +1,3 @@
-<canvas id="<%= id %>" dataset="<%= dataset %>" <%= attributes %> options='<%= options.to_json.html_safe%>'></canvas>
+<div style="<%= "max-height: #{html_attributes[:height]}px" unless html_attributes[:height].nil? %>">
+  <canvas id="<%= id %>" dataset="<%= dataset %>" <%= attributes %> options='<%= options.to_json.html_safe%>'></canvas>
+</div>
