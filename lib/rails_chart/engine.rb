@@ -1,6 +1,6 @@
 module RailsChart
-  class RailsChartEngine < Rails::Engine
-    initializer 'RailsChart.view_helpers' do
+  class Engine < Rails::Engine
+    initializer 'rails_chart.view_helpers' do
       ActionView::Base.send :include, ViewHelpers
     end
   end
