@@ -1,6 +1,6 @@
 # RailsChart
 
-TODO: Write a gem description
+Beautiful charts for Rails app with preconfigured Javascript, AJAX data load, clean HTML and helpers
 
 ## Installation
 
@@ -16,9 +16,48 @@ Or install it yourself as:
 
     $ gem install rails_chart
 
+Then add into `application.js`
+
+    //= require chartjs_init
+
 ## Usage
 
-TODO: Write usage instructions here
+### View
+
+    <%= chartjs 'test_chart', admin_chart_data_path(name: 'test_data'), height: '200', width: '500', charttype: :line %>
+
+### Controller
+
+Load GraphJs data for two charts from a controller. JSON response good for AJAX response.
+
+```ruby
+  # GET /home/chart_data/:name
+  def chart_data
+    if params[:name] == 'content_data'
+      graphjs = { id: params[:id] }
+       graphjs[:dataset] = [{value: 300, label: "App"},
+         {value: 140, label: "Software"},
+         {value: 200, label: "Laptop"}]
+
+    else
+      graphjs = { id: params[:id], labels: %w(Jan Feb Mar Apr), datasets: [] }
+
+      (1..3).each do |line|
+        d = { label: "label #{line}", data: [] }
+
+        (1..4).each do |datapoint|
+          d[:data] <<  Random.new.rand(100)
+        end
+
+        graphjs[:datasets] << d
+      end
+    end
+
+    respond_to do |format|
+      format.json { render json: graphjs }
+    end
+  end
+```
 
 ## Contributing
 
