@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["kepes.peter@codeplay.hu"]
   spec.description   = %q{Beautiful charts for Rails app with preconfigured Javascript, AJAX data load, clean HTML and helpers}
   spec.summary       = %q{Beautiful charts for Rails app}
-  spec.homepage      = 'https://github.com/kepes/rails_chart'
+  spec.homepage      = 'https://github.com/kepes/rails-chart'
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
