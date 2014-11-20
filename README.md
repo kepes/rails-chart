@@ -69,7 +69,7 @@ Send dataset into view directly with Hash:
 
 ```ruby
   def index
-    graphjs = {dataset: [
+    @dataset_hash = {dataset: [
       {value: 300, label: "App"},
       {value: 140, label: "Software"},
       {value: 200, label: "Laptop"}
