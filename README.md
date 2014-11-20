@@ -30,7 +30,7 @@ For AJAX request:
 
 Dataset inside html:
 
-    <%= chartjs 'test_chart', @dataset_hash, height: '200', width: '500', charttype: :line %>
+    <%= chartjs 'test_chart', @dataset_hash, height: '200', charttype: :pie %>
 
 ### Controller
 
