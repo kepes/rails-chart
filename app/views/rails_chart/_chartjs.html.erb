@@ -1,3 +1,7 @@
 <div style="<%= "max-height: #{html_attributes[:height]}px" unless html_attributes[:height].nil? %>">
-  <canvas id="<%= id %>" dataset="<%= dataset %>" <%= attributes %> options='<%= options.to_json.html_safe%>'></canvas>
+  <% if dataset.is_a? Hash %>
+    <canvas id="<%= id %>" dataset='<%= dataset.to_json.html_safe %>' <%= attributes %> options='<%= options.to_json.html_safe %>'></canvas>
+  <% else %>
+    <canvas id="<%= id %>" dataset-url="<%= dataset %>" <%= attributes %> options='<%= options.to_json.html_safe %>'></canvas>
+  <% end %>
 </div>

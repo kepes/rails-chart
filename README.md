@@ -24,11 +24,17 @@ Then add into `application.js`
 
 ### View
 
-    <%= chartjs 'test_chart', admin_chart_data_path(name: 'test_data'), height: '200', width: '500', charttype: :line %>
+For AJAX request:
+
+    <%= chartjs 'test_chart', chart_data_path(name: 'test_data'), height: '200', width: '500', charttype: :line %>
+
+Dataset inside html:
+
+    <%= chartjs 'test_chart', @dataset_hash, height: '200', width: '500', charttype: :line %>
 
 ### Controller
 
-Load GraphJs data for two charts from a controller. JSON response good for AJAX response.
+Load GraphJs data with AJAX for two charts from a controller.
 
 ```ruby
   # GET /home/chart_data/:name
@@ -59,6 +65,17 @@ Load GraphJs data for two charts from a controller. JSON response good for AJAX 
   end
 ```
 
+Send dataset into view directly with Hash:
+
+```ruby
+  def index
+    graphjs = {dataset: [
+      {value: 300, label: "App"},
+      {value: 140, label: "Software"},
+      {value: 200, label: "Laptop"}
+    ]}
+  end
+```
 ## Contributing
 
 1. Fork it
